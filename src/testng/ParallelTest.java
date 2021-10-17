@@ -14,8 +14,8 @@ import org.testng.annotations.Test;
 
 public class ParallelTest {
 
-	public String username = "haritagr16";
-	public String accesskey = "KhRUhWBtSMg06DfGkKDY1khYNJm95695WV42HfaYPot7nqQfw6";
+	public String username = "YOUR_USERNAME";
+	public String accesskey = "YOUR_ACCESSKEY";
 	public RemoteWebDriver driver = null;
 	public String gridURL = "@hub.lambdatest.com/wd/hub";
 	boolean status = false;
