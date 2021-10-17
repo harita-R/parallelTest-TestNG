@@ -18,7 +18,8 @@
 2. Clone the code to your local system
 3. Add external API JARS. 
     Right-click on  *project > Properties > Java Build Path > libraries > classpath > Add external JARs*
-4. Go to **testng.xml** file. Run as > TestNG Test Suite
+4. Provide your unique username and accesskey to remote grid inside TestNG class file (**ParallelTest.java**)
+5. Go to **testng.xml** file. Run as > TestNG Test Suite
 ---
 ### Author
 Harita Ravindranath
