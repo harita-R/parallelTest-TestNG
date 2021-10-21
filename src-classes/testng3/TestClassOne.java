@@ -1,19 +1,19 @@
-package testng;
+package testng3;
 
-import java.util.concurrent.TimeUnit;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+
 import java.net.MalformedURLException;
 import java.net.URL;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.AfterMethod;
 
-public class ParallelTest {
-
+public class TestClassOne {
+	
 	public String username = "YOUR_USERNAME";
 	public String accesskey = "YOUR_ACCESSKEY";
 	public RemoteWebDriver driver = null;
@@ -21,15 +21,15 @@ public class ParallelTest {
 	boolean status = false;
 
 
-	@BeforeClass
-	@org.testng.annotations.Parameters(value={"browser","version","platform"})
+	@BeforeMethod
+	@Parameters(value={"browser","version","platform"})
 	public void setUp(String browser, String version, String platform) throws Exception {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("browserName", browser);
 		capabilities.setCapability("version", version);
 		capabilities.setCapability("platform", platform); // If this cap isn't specified, it will just get the any available one
-		capabilities.setCapability("build", "ParallelTestNG");
-		capabilities.setCapability("name", "ParallelTestNG");
+		capabilities.setCapability("build", "TestClassParallelExecution");
+		capabilities.setCapability("name", "TestClassOne");
 		capabilities.setCapability("network", true); // To enable network logs
 		capabilities.setCapability("visual", true); // To enable step by step screenshot
 		capabilities.setCapability("video", true); // To enable video recording
@@ -56,12 +56,11 @@ public class ParallelTest {
 		driver.findElement(By.className("button")).click();		       
 	}
 
-	@AfterClass
+	@AfterMethod
 	public void tearDown() throws Exception {
 		if (driver != null) {
 			System.out.println("Tearing down..");
 			driver.quit();
 		}
 	}
-
 }

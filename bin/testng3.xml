@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Parallel Test Suite" parallel="classes" thread-count="2">
+
+	<test name="Chrome Test">
+		<parameter name="browser" value="chrome" />
+		<parameter name="version" value="79.0" />
+		<parameter name="platform" value="WIN10" />
+		<classes>
+			<class name="testng3.TestClassOne" />
+			<class name="testng3.TestClassTwo" />
+		</classes>
+	</test>
+	
+	<!-- Test -->
+</suite> <!-- Suite -->
